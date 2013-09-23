@@ -43,8 +43,6 @@ public class TestHunSpell {
 		language = "da_DK";
 
 		instance = Hunspell.getInstance();
-		Hunspell.Dictionary d = instance.getDictionary(
-				dir + "/" + language);
 	}
 
 	/**
