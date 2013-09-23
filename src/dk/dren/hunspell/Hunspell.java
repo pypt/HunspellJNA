@@ -380,6 +380,30 @@ public class Hunspell {
 				return Collections.emptyList();
 			}
 		}
+		
+		/**
+		 * Generates a word taking another word as an example
+		 * @param word to generate
+		 * @param word to take an example from
+		 * @return list of generated words
+		 */
+		public List<String> generate(String word, String word2) {
+			try {
+				int generatedWordsCount = 0;
+				PointerByReference generatedWords = new PointerByReference();
+				generatedWordsCount = hsl.Hunspell_generate(
+						hunspellDict,
+						generatedWords,
+						stringToBytes(word),
+						stringToBytes(word2)
+				);
+
+				return pointerToCStringsToList(generatedWords, generatedWordsCount);
+				
+			} catch (UnsupportedEncodingException ex) {
+				return Collections.emptyList();
+			}
+		}
 
 		private List<String> pointerToCStringsToList(PointerByReference slst, int n) {
 			if ( n == 0 ) {

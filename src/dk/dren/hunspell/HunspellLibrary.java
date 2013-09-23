@@ -83,6 +83,8 @@ public interface HunspellLibrary extends Library {
      */
     public int Hunspell_stem(Pointer pHunspell, PointerByReference slst, byte[] word);
 
+    public int Hunspell_generate(Pointer pHunspell, PointerByReference slst, byte[] word, byte[] word2);
+
     /**
      * Free the memory used by the lists created as output from the other functions.
      * @param pHunspell the Hunspell object returned by {@link #Hunspell_create(String, String)}

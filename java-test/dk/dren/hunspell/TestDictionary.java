@@ -104,5 +104,14 @@ public class TestDictionary {
 			System.out.println("DE stem : " + stem);
 		}
 	}
+	
+	@Test
+	public void testGenerate() {
+		
+		List<String> generatedWords = de.generate("Katze", "Katzen");
+		System.out.println("Generated words: " + generatedWords);
+		assertTrue("FIXME", false);
+		
+	}
 
 }
