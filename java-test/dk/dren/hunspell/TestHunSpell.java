@@ -35,7 +35,12 @@ public class TestHunSpell {
 	@Before
 	public void setUp() throws Exception {
 		System.err.println("Loading Hunspell");
-		dir = "/usr/share/hunspell";
+		if (System.getProperty("os.name").toLowerCase().startsWith("mac os x")) {
+			dir = "/Library/Spelling";
+		} else {
+			dir = "/usr/share/hunspell";
+		}
+
 		if (System.getProperties().containsKey("root")) {
 			dir = System.getProperty("root");
 		}

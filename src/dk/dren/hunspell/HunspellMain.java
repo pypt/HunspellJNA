@@ -31,7 +31,12 @@ public class HunspellMain {
 			} else {
 
 				System.err.println("Loading Hunspell");
-				String dir = "/usr/share/hunspell";
+				String dir;
+				if (System.getProperty("os.name").toLowerCase().startsWith("mac os x")) {
+					dir = "/Library/Spelling";
+				} else {
+					dir = "/usr/share/hunspell";
+				}
 				if (System.getProperties().containsKey("root")) {
 					dir = System.getProperty("root");
 				}
